@@ -14,11 +14,8 @@ export class BoardsController {
     private logger = new Logger('Boards');
     constructor(private boardsService: BoardsService) { }
 
-    // @Get('/')
-    // getAllBoard(): Board[] {
-    //     return this.boardsService.getAllBoards();
-    // }
-
+  
+// 유저가 쓴 모든 글 읽어오기
     @Get()
     getAllBoard(
         @GetUser() user: User
@@ -27,14 +24,8 @@ export class BoardsController {
         return this.boardsService.getAllBoards(user);
     }
 
-    // @Post()
-    // @UsePipes(ValidationPipe)
-    // createBoard(
-    //     @Body() createBoardDto: CreateBoardDto
-    // ): Board {
-    //     return this.boardsService.createBoard(createBoardDto);
-    // }
-
+  
+// 게시글 생성하기
     @Post()
     @UsePipes(ValidationPipe)
     createBoard(@Body() createBoardDto: CreateBoardDto,
@@ -44,16 +35,14 @@ export class BoardsController {
         return this.boardsService.createBoard(createBoardDto, user);
     }
 
+    // id로 쓴 글 읽기
     @Get('/:id')
     getBoardById(@Param('id') id: number): Promise<Board> {
         return this.boardsService.getBoardById(id);
     }
 
-    // @Get('/:id')
-    // getBoardById(@Param('id') id: string): Board {
-    //     return this.boardsService.getBoardById(id)
-    // }
 
+// 게시글 삭제
     @Delete('/:id')
     deleteBoard(@Param('id', ParseIntPipe) id,
     @GetUser() user:User
@@ -61,11 +50,8 @@ export class BoardsController {
         return this.boardsService.deleteBoard(id, user);
     }
 
-    // @Delete('/:id')
-    // deleteBoard(@Param('id') id: string): void {
-    //     this.boardsService.deleteBoard(id);
-    // }
-    
+
+    // 게시글 수정
     @Patch('/:id/status')
     updateBoardStatus(
         @Param('id', ParseIntPipe) id: number,
@@ -75,12 +61,5 @@ export class BoardsController {
     }
 
 
-    // @Patch('/:id/status')
-    // updateBoardStatus(
-    //     @Param('id') id: string,
-    //     @Body('status', BoardStatusValidationPipe) status: BoardStatus
-    // ) {
-    //     return this.boardsService.updateBoardStatus(id, status);
-    // }
 
 }

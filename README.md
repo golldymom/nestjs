@@ -26,6 +26,10 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+
+
+typesrit, node, nest.js, tyeorm, postgresql을 사용하여 회원(생성, 로그인(토큰생성))기능, 게시판(생성(private, public 구분), 확인, 삭제, 수정)기능, 에러처리, 로그를 구현했습니다.
+
 ## Installation
 
 ```bash
@@ -59,13 +63,28 @@ $ npm run start:prod
 
 ```
 ## 앱 시작 후
-postman을 이용해서 접근합니다.
--회원가입 - 
+postman을 이용해서 접근합니다.(경로 및 방식) 
 
-- 게시글  - create(post) - 생성
-          - read(get)id로 - 게시글 읽기
-          - update(patch) - 게시글 수정
-          - delete(delete) - 게시글 삭제
+로그인 후 토큰이 발생하면 토큰을 게시글 작업시 꼭 챙겨주세요
+
+
+-회원가입(/auth) - create(post) -생성(/signup) "username, password"
+
+          - read(post) -읽기(/signin) "username, password"
+
+
+- 게시글(/boards)  - create(post) - 생성(/),"title,description,status"(status는 기본적으로 퍼블릭으로 걸려 있습니다.)
+
+          - read(get)id로 - 모든 게시글 읽기(/)
+
+
+          - read(get)id로 - 게시글 읽기(/:id)
+
+
+          - update(patch) - 게시글 수정(/:id/status)
+
+
+          - delete(delete) - 게시글 삭제(/:id)
 
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
