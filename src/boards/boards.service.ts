@@ -12,10 +12,8 @@ export class BoardsService {
         @InjectRepository(BoardRepository)
         private boardRepository: BoardRepository,
     ) { }
-    // getAllBoards(): Board[] {
-    //     return this.boards;
-    // }
 
+// 모든 게시글 읽기
     async getAllBoards(
         user: User
     ): Promise<Board[]> {
@@ -28,20 +26,8 @@ export class BoardsService {
         return boards;
     }
 
-    // createBoard(createBoardDto: CreateBoardDto) {
-    //     const { title, description } = createBoardDto;
 
-    //     const board: Board = {
-    //         id: uuid(),
-    //         title,
-    //         description,
-    //         status: BoardStatus.PUBLIC
-    //     }
-
-    //     this.boards.push(board);
-    //     return board;
-    // }
-
+// 게시글 생성하기
     createBoard(createBoardDto: CreateBoardDto, user: User): Promise<Board> {
         return this.boardRepository.createBoard(createBoardDto, user);
     }
@@ -56,16 +42,8 @@ export class BoardsService {
         return found;
     }
 
-    // getBoardById(id: string): Board {
-    //     const found = this.boards.find((board) => board.id === id);
-
-    //     if (!found) {
-    //         throw new NotFoundException(`Can't find Board with id ${id}`);
-    //     }
-
-    //     return found;
-    // }
-
+ 
+// 게시글 삭제하기 보드의 id로 삭제함
     async deleteBoard(id: number, user: User): Promise<void> {
         const result = await this.boardRepository.delete({id, user});
 
@@ -74,12 +52,9 @@ export class BoardsService {
         }
     }
 
-    // deleteBoard(id: string): void {
-    //     const found = this.getBoardById(id);
-    //     this.boards = this.boards.filter((board) => board.id !== found.id);
-    // }
 
 
+// 게시글 수정하기 보드 id로 수정함
     async updateBoardStatus(id: number, status: BoardStatus): Promise<Board> {
         const board = await this.getBoardById(id);
 
@@ -88,10 +63,6 @@ export class BoardsService {
 
         return board;
     }
-    // updateBoardStatus(id: string, status: BoardStatus): Board {
-    //     const board = this.getBoardById(id);
-    //     board.status = status;
-    //     return board;
-    // }
+
 
 }
