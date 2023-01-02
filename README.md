@@ -68,12 +68,15 @@ postman을 이용해서 접근합니다.(경로 및 방식)
 로그인 후 토큰이 발생하면 토큰을 게시글 작업시 꼭 챙겨주세요
 
 
--회원가입(/auth) - create(post) -생성(/signup) "username, password"
+-회원가입(/auth) 
+          - create(post) -생성(/signup) "username, password"
 
           - read(post) -읽기(/signin) "username, password"
 
 
-- 게시글(/boards)  - create(post) - 생성(/),"title,description,status"(status는 기본적으로 퍼블릭으로 걸려 있습니다.)
+- 게시글(/boards)  
+
+          - create(post) - 생성(/),"title,description,status"(status는 기본적으로 퍼블릭으로 걸려 있습니다.)
 
           - read(get)id로 - 모든 게시글 읽기(/)
 
