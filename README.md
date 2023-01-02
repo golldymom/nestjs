@@ -69,6 +69,7 @@ postman을 이용해서 접근합니다.(경로 및 방식)
 
 
 -회원가입(/auth) 
+
           - create(post) -생성(/signup) "username, password"
 
           - read(post) -읽기(/signin) "username, password"
