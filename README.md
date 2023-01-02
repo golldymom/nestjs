@@ -57,7 +57,7 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## 앱 시작 후
+## 브라우저 연결
 ```브라우저에서 localhost:4000으로 들어갈것
  브라우저는 404 NOT FOUND라고 뜨지만 서버는 켜진 상태입니다.
 
