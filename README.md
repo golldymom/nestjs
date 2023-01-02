@@ -29,7 +29,7 @@
 ## Installation
 
 ```bash
-$ npm install
+$ npm i
 ```
 ## pg 연결
 포스트그래스와 연결이 되어야 서비스가 실행됩니다.
@@ -53,6 +53,19 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## 앱 시작 후
+```브라우저에서 localhost:4000으로 들어갈것
+ 브라우저는 404 NOT FOUND라고 뜨지만 서버는 켜진 상태입니다.
+
+```
+## 앱 시작 후
+postman을 이용해서 접근합니다.
+-회원가입 - 
+
+- 게시글  - create(post) - 생성
+          - read(get)id로 - 게시글 읽기
+          - update(patch) - 게시글 수정
+          - delete(delete) - 게시글 삭제
 
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
@@ -63,7 +76,6 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 - Website - [https://nestjs.com](https://nestjs.com/)
 - Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
 
-Nest is [MIT licensed](LICENSE).
-# nestjs-board-app
+
+
